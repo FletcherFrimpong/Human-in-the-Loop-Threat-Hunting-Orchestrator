@@ -1,0 +1,238 @@
+[
+  {
+    "schemaId": "securityalert",
+    "data": {
+      "TenantId": "contoso-tenant-001",
+      "TimeGenerated": "2024-12-16T14:45:30.123Z",
+      "DisplayName": "Suspicious Data Exfiltration Activity Detected",
+      "AlertName": "Data_Exfiltration_Detected",
+      "AlertSeverity": "High",
+      "Description": "Large volume of data being transferred to external IP addresses. Possible data exfiltration in progress.",
+      "ProviderName": "Microsoft Defender ATP",
+      "VendorName": "Microsoft",
+      "VendorOriginalId": "DATA_EXFIL_001",
+      "SystemAlertId": "alert-2024-12-16-144530",
+      "ResourceId": "/subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/contoso-rg/providers/Microsoft.Compute/virtualMachines/dbserver-01",
+      "SourceComputerId": "dbserver-01.contoso.com",
+      "AlertType": "Data Exfiltration",
+      "ConfidenceLevel": "Medium",
+      "ConfidenceScore": 78.5,
+      "IsIncident": true,
+      "StartTime": "2024-12-16T14:30:00.000Z",
+      "EndTime": "2024-12-16T14:45:30.123Z",
+      "ProcessingEndTime": "2024-12-16T14:45:35.000Z",
+      "RemediationSteps": "Block external connections, investigate affected systems, review access logs",
+      "ExtendedProperties": {
+        "DataVolume": "2.5 GB",
+        "DestinationIPs": ["203.0.113.45", "198.51.100.67"],
+        "FileTypes": ["SQL", "CSV", "JSON"],
+        "SuspiciousProcesses": ["sqlcmd.exe", "powershell.exe"]
+      },
+      "Entities": [
+        {
+          "Type": "Host",
+          "Value": "dbserver-01.contoso.com"
+        },
+        {
+          "Type": "IP",
+          "Value": "10.0.2.10"
+        },
+        {
+          "Type": "User",
+          "Value": "dbadmin@contoso.com"
+        }
+      ],
+      "SourceSystem": "Microsoft Defender ATP",
+      "WorkspaceSubscriptionId": "12345678-1234-1234-1234-123456789012",
+      "WorkspaceResourceGroup": "contoso-rg",
+      "ExtendedLinks": "https://security.microsoft.com/incidents/data-exfil-001",
+      "ProductName": "Microsoft Defender ATP",
+      "ProductComponentName": "Data Loss Prevention",
+      "AlertLink": "https://security.microsoft.com/alerts/alert-2024-12-16-144530",
+      "Status": "New",
+      "CompromisedEntity": "dbserver-01.contoso.com",
+      "Tactics": ["Initial Access", "Lateral Movement", "Collection", "Exfiltration"],
+      "CorrelationId": "data-exfiltration-2024-12-16-001",
+      "Type": "SecurityAlert"
+    }
+  },
+  {
+    "schemaId": "signinlogs",
+    "data": {
+      "TenantId": "contoso-tenant-001",
+      "TimeGenerated": "2024-12-16T14:15:22.456Z",
+      "Category": "SignInLogs",
+      "Activity": "User sign-in",
+      "ActivityDateTime": "2024-12-16T14:15:22.456Z",
+      "LoggedByService": "Core Directory",
+      "ResultType": "Success",
+      "ResultSignature": "Success",
+      "ResultDescription": "Successfully signed in",
+      "Location": {
+        "City": "New York",
+        "State": "NY",
+        "CountryOrRegion": "US",
+        "GeoCoordinates": {
+          "Altitude": null,
+          "Latitude": 40.7128,
+          "Longitude": -74.0060
+        }
+      },
+      "UserPrincipalName": "dbadmin@contoso.com",
+      "UserDisplayName": "Database Administrator",
+      "UserType": "Member",
+      "IPAddress": "203.0.113.45",
+      "UserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+      "ClientAppUsed": "Browser",
+      "DeviceDetail": {
+        "DeviceId": "device-001",
+        "DisplayName": "Unknown Device",
+        "OperatingSystem": "Windows 10",
+        "Browser": "Chrome 120.0.0.0"
+      },
+      "CorrelationId": "data-exfiltration-2024-12-16-001",
+      "Type": "SigninLogs"
+    }
+  },
+  {
+    "schemaId": "securityevent",
+    "data": {
+      "TenantId": "contoso-tenant-001",
+      "TimeGenerated": "2024-12-16T14:20:15.789Z",
+      "EventID": 4624,
+      "Computer": "webserver-01.contoso.com",
+      "Activity": "An account was successfully logged on",
+      "SubjectUserSid": "S-1-5-18",
+      "SubjectUserName": "SYSTEM",
+      "SubjectDomainName": "NT AUTHORITY",
+      "SubjectLogonId": "0x3e7",
+      "TargetUserSid": "S-1-5-21-1234567890-1234567890-1234567890-1002",
+      "TargetUserName": "dbadmin",
+      "TargetDomainName": "CONTOSO",
+      "TargetLogonId": "0x123457",
+      "LogonType": "3",
+      "LogonProcessName": "NtLmSsp",
+      "AuthenticationPackageName": "NTLM",
+      "WorkstationName": "WEBSERVER-01",
+      "LogonGuid": "{12345678-1234-1234-1234-123456789012}",
+      "ProcessId": "0x1234",
+      "ProcessName": "C:\\Windows\\System32\\lsass.exe",
+      "IPAddress": "10.0.1.15",
+      "IPPort": "445",
+      "ImpersonationLevel": "%%1833",
+      "RestrictedAdminMode": "%%1843",
+      "TargetOutboundUserName": "dbadmin",
+      "TargetOutboundDomainName": "CONTOSO",
+      "VirtualAccount": "%%1842",
+      "TargetLinkedLogonId": "0x0",
+      "ElevatedToken": "%%1843",
+      "SourceSystem": "Microsoft Windows",
+      "CorrelationId": "data-exfiltration-2024-12-16-001",
+      "Type": "SecurityEvent"
+    }
+  },
+  {
+    "schemaId": "securityevent",
+    "data": {
+      "TenantId": "contoso-tenant-001",
+      "TimeGenerated": "2024-12-16T14:25:30.123Z",
+      "EventID": 4688,
+      "Computer": "dbserver-01.contoso.com",
+      "Activity": "A new process has been created",
+      "SubjectUserSid": "S-1-5-21-1234567890-1234567890-1234567890-1002",
+      "SubjectUserName": "dbadmin",
+      "SubjectDomainName": "CONTOSO",
+      "SubjectLogonId": "0x123457",
+      "NewProcessId": "0x2345",
+      "NewProcessName": "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\sqlcmd.exe",
+      "TokenElevationType": "%%1938",
+      "ProcessId": "0x2345",
+      "CommandLine": "sqlcmd.exe -S dbserver-01 -U sa -P 'WeakPassword123!' -Q \"SELECT * FROM customers INTO OUTFILE 'C:\\temp\\customer_data.csv'\"",
+      "TargetUserSid": "S-1-5-21-1234567890-1234567890-1234567890-1002",
+      "TargetUserName": "dbadmin",
+      "TargetDomainName": "CONTOSO",
+      "TargetLogonId": "0x123457",
+      "ParentProcessName": "C:\\Windows\\System32\\cmd.exe",
+      "MandatoryLabel": "S-1-16-12288",
+      "SourceSystem": "Microsoft Windows",
+      "CorrelationId": "data-exfiltration-2024-12-16-001",
+      "Type": "SecurityEvent"
+    }
+  },
+  {
+    "schemaId": "commonsecuritylog",
+    "data": {
+      "TenantId": "contoso-tenant-001",
+      "TimeGenerated": "2024-12-16T14:35:45.456Z",
+      "DeviceVendor": "Cisco",
+      "DeviceProduct": "ASA",
+      "DeviceVersion": "9.14",
+      "Activity": "Connection established",
+      "LogSeverity": "Medium",
+      "SourceIP": "10.0.2.10",
+      "DestinationIP": "203.0.113.45",
+      "SourcePort": 54321,
+      "DestinationPort": 443,
+      "Protocol": "TCP",
+      "Action": "Allow",
+      "SignatureId": "20045",
+      "Message": "Large data transfer detected to external IP",
+      "ApplicationProtocol": "HTTPS",
+      "BytesIn": 2560000,
+      "BytesOut": 512,
+      "MalwareDetected": false,
+      "ThreatCategory": "Data Exfiltration",
+      "GeoLocation": {
+        "Country": "United States",
+        "City": "New York",
+        "Latitude": 40.7128,
+        "Longitude": -74.0060
+      },
+      "SourceSystem": "Cisco ASA",
+      "CorrelationId": "data-exfiltration-2024-12-16-001",
+      "Type": "CommonSecurityLog"
+    }
+  },
+  {
+    "schemaId": "auditlogs",
+    "data": {
+      "TenantId": "contoso-tenant-001",
+      "TimeGenerated": "2024-12-16T14:40:12.789Z",
+      "Category": "UserManagement",
+      "CorrelationId": "audit-2024-12-16-144012",
+      "Result": "Success",
+      "ResultReason": "Successfully completed operation",
+      "ActivityDisplayName": "Add member to role",
+      "ActivityDateTime": "2024-12-16T14:40:12.789Z",
+      "LoggedByService": "Core Directory",
+      "OperationName": "Add member to role",
+      "OperationVersion": "1.0",
+      "ResultType": "Success",
+      "ResultSignature": "Success",
+      "DurationMs": 150,
+      "CallerIpAddress": "203.0.113.45",
+      "UserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+      "InitiatedBy": {
+        "User": {
+          "Id": "dbadmin@contoso.com",
+          "DisplayName": "Database Administrator",
+          "UserPrincipalName": "dbadmin@contoso.com"
+        }
+      },
+      "TargetResources": [
+        {
+          "Id": "role-001",
+          "DisplayName": "Global Administrator",
+          "Type": "Role"
+        }
+      ],
+      "AdditionalDetails": {
+        "RoleName": "Global Administrator",
+        "MemberAdded": "dbadmin@contoso.com"
+      },
+      "SourceSystem": "Microsoft Graph",
+      "CorrelationId": "data-exfiltration-2024-12-16-001",
+      "Type": "AuditLogs"
+    }
+  }
+] 

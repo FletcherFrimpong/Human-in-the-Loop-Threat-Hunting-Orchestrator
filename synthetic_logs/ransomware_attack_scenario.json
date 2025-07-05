@@ -1,0 +1,171 @@
+[
+  {
+    "schemaId": "securityalert",
+    "data": {
+      "TenantId": "contoso-tenant-001",
+      "TimeGenerated": "2024-12-15T08:30:15.123Z",
+      "DisplayName": "Ransomware Activity Detected - WannaCry Variant",
+      "AlertName": "Ransomware_Activity_Detected",
+      "AlertSeverity": "Critical",
+      "Description": "Multiple indicators of ransomware activity detected across network. Files being encrypted with .wcry extension.",
+      "ProviderName": "Microsoft Defender ATP",
+      "VendorName": "Microsoft",
+      "VendorOriginalId": "RANSOMWARE_001",
+      "SystemAlertId": "alert-2024-12-15-083015",
+      "ResourceId": "/subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/contoso-rg/providers/Microsoft.Compute/virtualMachines/webserver-01",
+      "SourceComputerId": "webserver-01.contoso.com",
+      "AlertType": "Ransomware",
+      "ConfidenceLevel": "High",
+      "ConfidenceScore": 95.5,
+      "IsIncident": true,
+      "StartTime": "2024-12-15T08:25:00.000Z",
+      "EndTime": "2024-12-15T08:30:15.123Z",
+      "ProcessingEndTime": "2024-12-15T08:30:20.000Z",
+      "RemediationSteps": "Isolate affected systems, disable network shares, contact incident response team",
+      "ExtendedProperties": {
+        "AffectedFiles": 1500,
+        "EncryptedExtensions": [".wcry", ".encrypted"],
+        "RansomNote": "Your files have been encrypted. Pay 0.5 BTC to recover them."
+      },
+      "Entities": [
+        {
+          "Type": "Host",
+          "Value": "webserver-01.contoso.com"
+        },
+        {
+          "Type": "IP",
+          "Value": "10.0.1.15"
+        },
+        {
+          "Type": "User",
+          "Value": "admin@contoso.com"
+        }
+      ],
+      "SourceSystem": "Microsoft Defender ATP",
+      "WorkspaceSubscriptionId": "12345678-1234-1234-1234-123456789012",
+      "WorkspaceResourceGroup": "contoso-rg",
+      "ExtendedLinks": "https://security.microsoft.com/incidents/ransomware-001",
+      "ProductName": "Microsoft Defender ATP",
+      "ProductComponentName": "Ransomware Protection",
+      "AlertLink": "https://security.microsoft.com/alerts/alert-2024-12-15-083015",
+      "Status": "New",
+      "CompromisedEntity": "webserver-01.contoso.com",
+      "Tactics": ["Execution", "Defense Evasion", "Impact"],
+      "CorrelationId": "ransomware-attack-2024-12-15-001",
+      "Type": "SecurityAlert"
+    }
+  },
+  {
+    "schemaId": "securityevent",
+    "data": {
+      "TenantId": "contoso-tenant-001",
+      "TimeGenerated": "2024-12-15T08:25:30.456Z",
+      "EventID": 4688,
+      "Computer": "webserver-01.contoso.com",
+      "Activity": "A new process has been created",
+      "SubjectUserSid": "S-1-5-21-1234567890-1234567890-1234567890-1001",
+      "SubjectUserName": "admin",
+      "SubjectDomainName": "CONTOSO",
+      "SubjectLogonId": "0x123456",
+      "NewProcessId": "0x1234",
+      "NewProcessName": "C:\\Windows\\System32\\cmd.exe",
+      "TokenElevationType": "%%1938",
+      "ProcessId": "0x1234",
+      "CommandLine": "cmd.exe /c powershell.exe -ExecutionPolicy Bypass -File C:\\temp\\wcry.ps1",
+      "TargetUserSid": "S-1-5-18",
+      "TargetUserName": "SYSTEM",
+      "TargetDomainName": "NT AUTHORITY",
+      "TargetLogonId": "0x3e7",
+      "ParentProcessName": "C:\\Windows\\System32\\svchost.exe",
+      "MandatoryLabel": "S-1-16-12288",
+      "SourceSystem": "Microsoft Windows",
+      "CorrelationId": "ransomware-attack-2024-12-15-001",
+      "Type": "SecurityEvent"
+    }
+  },
+  {
+    "schemaId": "commonsecuritylog",
+    "data": {
+      "TenantId": "contoso-tenant-001",
+      "TimeGenerated": "2024-12-15T08:26:15.789Z",
+      "DeviceVendor": "Palo Alto Networks",
+      "DeviceProduct": "PAN-OS",
+      "DeviceVersion": "10.1.0",
+      "Activity": "Threat detected",
+      "LogSeverity": "Critical",
+      "SourceIP": "185.220.101.42",
+      "DestinationIP": "10.0.1.15",
+      "SourcePort": 4444,
+      "DestinationPort": 445,
+      "Protocol": "TCP",
+      "Action": "Deny",
+      "SignatureId": "30001",
+      "Message": "Ransomware activity detected - WannaCry variant attempting to exploit SMB vulnerability",
+      "ApplicationProtocol": "SMB",
+      "BytesIn": 2048,
+      "BytesOut": 512,
+      "MalwareDetected": true,
+      "ThreatCategory": "Ransomware",
+      "GeoLocation": {
+        "Country": "Russia",
+        "City": "Moscow",
+        "Latitude": 55.7558,
+        "Longitude": 37.6176
+      },
+      "SourceSystem": "Palo Alto Networks",
+      "CorrelationId": "ransomware-attack-2024-12-15-001",
+      "Type": "CommonSecurityLog"
+    }
+  },
+  {
+    "schemaId": "appservicehttplogs",
+    "data": {
+      "TenantId": "contoso-tenant-001",
+      "TimeGenerated": "2024-12-15T08:27:45.123Z",
+      "Category": "AppServiceHTTPLogs",
+      "CsMethod": "POST",
+      "CsUriStem": "/api/admin/upload",
+      "SPort": "443",
+      "CIp": "185.220.101.42",
+      "UserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+      "CsHost": "webapp.contoso.com",
+      "ScStatus": 200,
+      "ScSubStatus": "0",
+      "ScWin32Status": "0",
+      "ScBytes": 1024,
+      "CsBytes": 5120,
+      "TimeTaken": 2500,
+      "Result": "Success",
+      "CsUriQuery": "file=wcry_payload.exe",
+      "CsUsername": "admin@contoso.com",
+      "Referer": "https://webapp.contoso.com/admin",
+      "SourceSystem": "Azure App Service",
+      "CorrelationId": "ransomware-attack-2024-12-15-001",
+      "Type": "AppServiceHTTPLogs"
+    }
+  },
+  {
+    "schemaId": "dnsevents",
+    "data": {
+      "TenantId": "contoso-tenant-001",
+      "TimeGenerated": "2024-12-15T08:28:10.456Z",
+      "Computer": "webserver-01.contoso.com",
+      "EventID": 3008,
+      "Activity": "DNS query",
+      "QueryName": "wcry-killswitch.com",
+      "QueryType": "A",
+      "QueryResults": "185.220.101.42",
+      "SourceIP": "10.0.1.15",
+      "DestinationIP": "8.8.8.8",
+      "SourcePort": 53124,
+      "DestinationPort": 53,
+      "Protocol": "UDP",
+      "ResponseCode": "NOERROR",
+      "MalwareDetected": true,
+      "ThreatCategory": "Ransomware",
+      "SourceSystem": "Microsoft Windows DNS",
+      "CorrelationId": "ransomware-attack-2024-12-15-001",
+      "Type": "DNSEvents"
+    }
+  }
+] 
