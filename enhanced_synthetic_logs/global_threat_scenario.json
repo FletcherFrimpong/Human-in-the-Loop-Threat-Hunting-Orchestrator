@@ -1,0 +1,386 @@
+[
+  {
+    "schemaId": "securityalert",
+    "data": {
+      "TenantId": "contoso-tenant-001",
+      "TimeGenerated": "2024-12-18T12:00:00.123Z",
+      "DisplayName": "Coordinated Global Attack Campaign Detected",
+      "AlertName": "Global_Attack_Campaign",
+      "AlertSeverity": "Critical",
+      "Description": "Multiple coordinated attacks detected from various global locations targeting different systems simultaneously.",
+      "ProviderName": "Microsoft Defender ATP",
+      "VendorName": "Microsoft",
+      "VendorOriginalId": "GLOBAL_ATTACK_001",
+      "SystemAlertId": "alert-2024-12-18-120000",
+      "ResourceId": "/subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/contoso-rg/providers/Microsoft.Compute/virtualMachines/multiple",
+      "SourceComputerId": "multiple-systems.contoso.com",
+      "AlertType": "Coordinated Attack",
+      "ConfidenceLevel": "High",
+      "ConfidenceScore": 92.5,
+      "IsIncident": true,
+      "StartTime": "2024-12-18T11:45:00.000Z",
+      "EndTime": "2024-12-18T12:00:00.123Z",
+      "ProcessingEndTime": "2024-12-18T12:00:05.000Z",
+      "RemediationSteps": "Implement global threat hunting, coordinate with international CERTs, activate incident response plan",
+      "ExtendedProperties": {
+        "AttackOrigins": ["Russia", "China", "North Korea", "Iran"],
+        "TargetSystems": ["Web Servers", "Database Servers", "Email Systems"],
+        "AttackTypes": ["DDoS", "Credential Harvesting", "Data Exfiltration"],
+        "CoordinatedTiming": "Synchronized within 15-minute window"
+      },
+      "Entities": [
+        {
+          "Type": "Host",
+          "Value": "multiple-systems.contoso.com"
+        },
+        {
+          "Type": "IP",
+          "Value": "Multiple"
+        },
+        {
+          "Type": "User",
+          "Value": "Multiple"
+        }
+      ],
+      "SourceSystem": "Microsoft Defender ATP",
+      "WorkspaceSubscriptionId": "12345678-1234-1234-1234-123456789012",
+      "WorkspaceResourceGroup": "contoso-rg",
+      "ExtendedLinks": "https://security.microsoft.com/incidents/global-attack-001",
+      "ProductName": "Microsoft Defender ATP",
+      "ProductComponentName": "Threat Intelligence",
+      "AlertLink": "https://security.microsoft.com/alerts/alert-2024-12-18-120000",
+      "Status": "New",
+      "CompromisedEntity": "Multiple Systems",
+      "Tactics": ["Initial Access", "Execution", "Persistence", "Defense Evasion", "Credential Access", "Discovery", "Lateral Movement", "Collection", "Command and Control", "Exfiltration"],
+      "CorrelationId": "global-attack-campaign-2024-12-18-001",
+      "Type": "SecurityAlert"
+    }
+  },
+  {
+    "schemaId": "commonsecuritylog",
+    "data": {
+      "TenantId": "contoso-tenant-001",
+      "TimeGenerated": "2024-12-18T11:45:15.456Z",
+      "DeviceVendor": "Palo Alto Networks",
+      "DeviceProduct": "PAN-OS",
+      "DeviceVersion": "10.1.0",
+      "Activity": "DDoS attack detected",
+      "LogSeverity": "Critical",
+      "SourceIP": "185.220.101.42",
+      "DestinationIP": "10.0.1.15",
+      "SourcePort": 80,
+      "DestinationPort": 80,
+      "Protocol": "TCP",
+      "Action": "Deny",
+      "SignatureId": "30003",
+      "Message": "Massive DDoS attack originating from Russian IP addresses",
+      "ApplicationProtocol": "HTTP",
+      "BytesIn": 1048576,
+      "BytesOut": 512,
+      "MalwareDetected": false,
+      "ThreatCategory": "DDoS Attack",
+      "GeoLocation": {
+        "Country": "Russia",
+        "City": "Moscow",
+        "Latitude": 55.7558,
+        "Longitude": 37.6176
+      },
+      "SourceSystem": "Palo Alto Networks",
+      "CorrelationId": "global-attack-campaign-2024-12-18-001",
+      "Type": "CommonSecurityLog"
+    }
+  },
+  {
+    "schemaId": "commonsecuritylog",
+    "data": {
+      "TenantId": "contoso-tenant-001",
+      "TimeGenerated": "2024-12-18T11:47:30.789Z",
+      "DeviceVendor": "Cisco",
+      "DeviceProduct": "ASA",
+      "DeviceVersion": "9.14",
+      "Activity": "Credential harvesting attempt",
+      "LogSeverity": "High",
+      "SourceIP": "203.0.113.45",
+      "DestinationIP": "10.0.1.20",
+      "SourcePort": 443,
+      "DestinationPort": 443,
+      "Protocol": "TCP",
+      "Action": "Deny",
+      "SignatureId": "20046",
+      "Message": "Multiple failed login attempts from Chinese IP addresses",
+      "ApplicationProtocol": "HTTPS",
+      "BytesIn": 2048,
+      "BytesOut": 1024,
+      "MalwareDetected": false,
+      "ThreatCategory": "Credential Harvesting",
+      "GeoLocation": {
+        "Country": "China",
+        "City": "Beijing",
+        "Latitude": 39.9042,
+        "Longitude": 116.4074
+      },
+      "SourceSystem": "Cisco ASA",
+      "CorrelationId": "global-attack-campaign-2024-12-18-001",
+      "Type": "CommonSecurityLog"
+    }
+  },
+  {
+    "schemaId": "commonsecuritylog",
+    "data": {
+      "TenantId": "contoso-tenant-001",
+      "TimeGenerated": "2024-12-18T11:50:45.123Z",
+      "DeviceVendor": "Fortinet",
+      "DeviceProduct": "FortiGate",
+      "DeviceVersion": "7.0",
+      "Activity": "SQL injection attempt",
+      "LogSeverity": "High",
+      "SourceIP": "175.45.176.1",
+      "DestinationIP": "10.0.2.10",
+      "SourcePort": 80,
+      "DestinationPort": 80,
+      "Protocol": "TCP",
+      "Action": "Deny",
+      "SignatureId": "40001",
+      "Message": "SQL injection attempts targeting database servers",
+      "ApplicationProtocol": "HTTP",
+      "BytesIn": 512,
+      "BytesOut": 256,
+      "MalwareDetected": false,
+      "ThreatCategory": "SQL Injection",
+      "GeoLocation": {
+        "Country": "North Korea",
+        "City": "Pyongyang",
+        "Latitude": 39.0194,
+        "Longitude": 125.7381
+      },
+      "SourceSystem": "Fortinet",
+      "CorrelationId": "global-attack-campaign-2024-12-18-001",
+      "Type": "CommonSecurityLog"
+    }
+  },
+  {
+    "schemaId": "commonsecuritylog",
+    "data": {
+      "TenantId": "contoso-tenant-001",
+      "TimeGenerated": "2024-12-18T11:52:10.456Z",
+      "DeviceVendor": "Check Point",
+      "DeviceProduct": "Security Gateway",
+      "DeviceVersion": "R81",
+      "Activity": "Advanced persistent threat activity",
+      "LogSeverity": "Critical",
+      "SourceIP": "5.61.32.1",
+      "DestinationIP": "10.0.1.25",
+      "SourcePort": 443,
+      "DestinationPort": 443,
+      "Protocol": "TCP",
+      "Action": "Deny",
+      "SignatureId": "50001",
+      "Message": "APT group activity detected with sophisticated evasion techniques",
+      "ApplicationProtocol": "HTTPS",
+      "BytesIn": 4096,
+      "BytesOut": 2048,
+      "MalwareDetected": true,
+      "ThreatCategory": "Advanced Persistent Threat",
+      "GeoLocation": {
+        "Country": "Iran",
+        "City": "Tehran",
+        "Latitude": 35.6892,
+        "Longitude": 51.3890
+      },
+      "SourceSystem": "Check Point",
+      "CorrelationId": "global-attack-campaign-2024-12-18-001",
+      "Type": "CommonSecurityLog"
+    }
+  },
+  {
+    "schemaId": "signinlogs",
+    "data": {
+      "TenantId": "contoso-tenant-001",
+      "TimeGenerated": "2024-12-18T11:55:20.789Z",
+      "Category": "SignInLogs",
+      "Activity": "Multiple failed sign-in attempts",
+      "ActivityDateTime": "2024-12-18T11:55:20.789Z",
+      "LoggedByService": "Core Directory",
+      "ResultType": "Failure",
+      "ResultSignature": "Failure",
+      "ResultDescription": "Invalid username or password",
+      "Location": {
+        "City": "Moscow",
+        "State": "Moscow",
+        "CountryOrRegion": "RU",
+        "GeoCoordinates": {
+          "Altitude": null,
+          "Latitude": 55.7558,
+          "Longitude": 37.6176
+        }
+      },
+      "UserPrincipalName": "admin@contoso.com",
+      "UserDisplayName": "System Administrator",
+      "UserType": "Member",
+      "IPAddress": "185.220.101.42",
+      "UserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+      "ClientAppUsed": "Browser",
+      "DeviceDetail": {
+        "DeviceId": "device-003",
+        "DisplayName": "Unknown Device",
+        "OperatingSystem": "Windows 10",
+        "Browser": "Chrome 120.0.0.0"
+      },
+      "CorrelationId": "global-attack-campaign-2024-12-18-001",
+      "Type": "SigninLogs"
+    }
+  },
+  {
+    "schemaId": "signinlogs",
+    "data": {
+      "TenantId": "contoso-tenant-001",
+      "TimeGenerated": "2024-12-18T11:56:45.123Z",
+      "Category": "SignInLogs",
+      "Activity": "Multiple failed sign-in attempts",
+      "ActivityDateTime": "2024-12-18T11:56:45.123Z",
+      "LoggedByService": "Core Directory",
+      "ResultType": "Failure",
+      "ResultSignature": "Failure",
+      "ResultDescription": "Invalid username or password",
+      "Location": {
+        "City": "Beijing",
+        "State": "Beijing",
+        "CountryOrRegion": "CN",
+        "GeoCoordinates": {
+          "Altitude": null,
+          "Latitude": 39.9042,
+          "Longitude": 116.4074
+        }
+      },
+      "UserPrincipalName": "ceo@contoso.com",
+      "UserDisplayName": "Chief Executive Officer",
+      "UserType": "Member",
+      "IPAddress": "203.0.113.45",
+      "UserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+      "ClientAppUsed": "Browser",
+      "DeviceDetail": {
+        "DeviceId": "device-004",
+        "DisplayName": "Unknown Device",
+        "OperatingSystem": "Windows 10",
+        "Browser": "Firefox 120.0.0.0"
+      },
+      "CorrelationId": "global-attack-campaign-2024-12-18-001",
+      "Type": "SigninLogs"
+    }
+  },
+  {
+    "schemaId": "dnsevents",
+    "data": {
+      "TenantId": "contoso-tenant-001",
+      "TimeGenerated": "2024-12-18T11:58:15.456Z",
+      "Computer": "webserver-01.contoso.com",
+      "EventID": 3008,
+      "Activity": "DNS query",
+      "QueryName": "c2-server-nk.com",
+      "QueryType": "A",
+      "QueryResults": "175.45.176.1",
+      "SourceIP": "10.0.1.15",
+      "DestinationIP": "8.8.8.8",
+      "SourcePort": 53126,
+      "DestinationPort": 53,
+      "Protocol": "UDP",
+      "ResponseCode": "NOERROR",
+      "MalwareDetected": true,
+      "ThreatCategory": "Command and Control",
+      "SourceSystem": "Microsoft Windows DNS",
+      "CorrelationId": "global-attack-campaign-2024-12-18-001",
+      "Type": "DNSEvents"
+    }
+  },
+  {
+    "schemaId": "dnsevents",
+    "data": {
+      "TenantId": "contoso-tenant-001",
+      "TimeGenerated": "2024-12-18T11:59:30.789Z",
+      "Computer": "dbserver-01.contoso.com",
+      "EventID": 3008,
+      "Activity": "DNS query",
+      "QueryName": "apt-c2-iran.net",
+      "QueryType": "A",
+      "QueryResults": "5.61.32.1",
+      "SourceIP": "10.0.2.10",
+      "DestinationIP": "8.8.8.8",
+      "SourcePort": 53127,
+      "DestinationPort": 53,
+      "Protocol": "UDP",
+      "ResponseCode": "NOERROR",
+      "MalwareDetected": true,
+      "ThreatCategory": "Command and Control",
+      "SourceSystem": "Microsoft Windows DNS",
+      "CorrelationId": "global-attack-campaign-2024-12-18-001",
+      "Type": "DNSEvents"
+    }
+  },
+  {
+    "schemaId": "appservicehttplogs",
+    "data": {
+      "TenantId": "contoso-tenant-001",
+      "TimeGenerated": "2024-12-18T12:00:00.123Z",
+      "Category": "AppServiceHTTPLogs",
+      "CsMethod": "POST",
+      "CsUriStem": "/api/admin/execute",
+      "SPort": "443",
+      "CIp": "185.220.101.42",
+      "UserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+      "CsHost": "webapp.contoso.com",
+      "ScStatus": 403,
+      "ScSubStatus": "0",
+      "ScWin32Status": "0",
+      "ScBytes": 512,
+      "CsBytes": 1024,
+      "TimeTaken": 500,
+      "Result": "Forbidden",
+      "CsUriQuery": "cmd=whoami",
+      "CsUsername": "admin@contoso.com",
+      "Referer": "https://webapp.contoso.com/admin",
+      "SourceSystem": "Azure App Service",
+      "CorrelationId": "global-attack-campaign-2024-12-18-001",
+      "Type": "AppServiceHTTPLogs"
+    }
+  },
+  {
+    "schemaId": "securityevent",
+    "data": {
+      "TenantId": "contoso-tenant-001",
+      "TimeGenerated": "2024-12-18T12:01:15.456Z",
+      "EventID": 4625,
+      "Computer": "webserver-01.contoso.com",
+      "Activity": "An account failed to log on",
+      "SubjectUserSid": "S-1-5-18",
+      "SubjectUserName": "SYSTEM",
+      "SubjectDomainName": "NT AUTHORITY",
+      "SubjectLogonId": "0x3e7",
+      "TargetUserSid": "S-1-5-21-1234567890-1234567890-1234567890-1001",
+      "TargetUserName": "admin",
+      "TargetDomainName": "CONTOSO",
+      "TargetLogonId": "0x0",
+      "LogonType": "3",
+      "LogonProcessName": "NtLmSsp",
+      "AuthenticationPackageName": "NTLM",
+      "WorkstationName": "WEBSERVER-01",
+      "LogonGuid": "{12345678-1234-1234-1234-123456789012}",
+      "ProcessId": "0x1234",
+      "ProcessName": "C:\\Windows\\System32\\lsass.exe",
+      "IPAddress": "185.220.101.42",
+      "IPPort": "445",
+      "ImpersonationLevel": "%%1833",
+      "RestrictedAdminMode": "%%1843",
+      "TargetOutboundUserName": "admin",
+      "TargetOutboundDomainName": "CONTOSO",
+      "VirtualAccount": "%%1842",
+      "TargetLinkedLogonId": "0x0",
+      "ElevatedToken": "%%1843",
+      "FailureReason": "%%2313",
+      "Status": "0xc000006d",
+      "SubStatus": "0xc0000064",
+      "SourceSystem": "Microsoft Windows",
+      "CorrelationId": "global-attack-campaign-2024-12-18-001",
+      "Type": "SecurityEvent"
+    }
+  }
+] 
